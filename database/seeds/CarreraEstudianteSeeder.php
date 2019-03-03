@@ -1,8 +1,9 @@
 <?php
-use App\CarreraMateria;
+
+use App\CarreraEstudiante;
 use Illuminate\Database\Seeder;
 
-class CarreraMateriaSeeder extends Seeder
+class CarreraEstudianteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +12,7 @@ class CarreraMateriaSeeder extends Seeder
      */
     public function run()
     {
-        factory(CarreraMateria::class,30)->create();
+        factory(CarreraEstudiante::class,200)->create();
     }
+
 }

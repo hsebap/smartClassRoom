@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Materia extends Model
+class Clase extends Model
 {
-    public function carreras()
+    public function estudiantes()
     {
-        return  $this->belongsToMany('Carrera','carrera_materia')
-            ->withPivot('carrera_id');
+        return $this->belongsToMany('Estudiante','estudiantes','estudiante_id')
+            ->withPivot('fecha','presente');
     }
 
     public function docentes()
