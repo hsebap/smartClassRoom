@@ -10,4 +10,11 @@ class Departamento extends Model
     {
         return $this->belongsToMany('Docente','docentes','docente_id');
     }
+
+    //Scope
+    public function  scopeNombre($query, $nombreFilter)
+    {
+        if($nombreFilter)
+            return $query->where('nombre','LIKE',"%$nombreFilter%");
+    }
 }

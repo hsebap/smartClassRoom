@@ -12,9 +12,21 @@ class DepartamentoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $nombreFilter = $request->get('nombre');
+        if(!$nombreFilter)
+            $departamentos=Departamento::paginate(10);
+        else
+        {
+            $departamentos=Departamento::nombre('nombreFilter')->get();
+
+            dd($departamentos);
+        }
+
+
+        $title= "Departamentos";
+        return view('departamento/index',compact('departamentos','title'));
     }
 
     /**
